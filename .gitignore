@@ -1,0 +1,101 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+# ----------------------
+# Python
+# ----------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# ----------------------
+# Airflow runtime files
+# ----------------------
+airflow.db
+airflow-webserver.pid
+airflow-scheduler.pid
+airflow-worker.pid
+
+# Serialized DAGs (if enabled)
+serialized_dags/
+
+# ----------------------
+# Logs
+# ----------------------
+logs/
+*.log
+
+# ----------------------
+# Local configs & secrets
+# ----------------------
+.env
+.env.*
+*.env
+
+# If you keep airflow.cfg locally customized
+airflow.cfg
+
+# Connections/variables export files
+connections.json
+variables.json
+
+# ----------------------
+# Docker / Compose volumes
+# ----------------------
+postgres-data/
+redis-data/
+pgdata/
+docker-volumes/
+
+# Docker override files (often local only)
+docker-compose.override.yml
+
+# ----------------------
+# IDE / OS
+# ----------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ----------------------
+# Testing / coverage
+# ----------------------
+.coverage
+htmlcov/
+.pytest_cache/
+
+# ----------------------
+# dbt (if used with airflow)
+# ----------------------
+target/
+dbt_packages/
+logs/
+
+# ----------------------
+# Jupyter (if present)
+# ----------------------
+.ipynb_checkpoints/
+
+# ----------------------
+# Terraform (if infra included)
+# ----------------------
+.terraform/
+*.tfstate*
