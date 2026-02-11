@@ -1,10 +1,15 @@
-🚀 Apache Airflow Learning & Orchestration Project
 
-This project contains a collection of Apache Airflow DAGs demonstrating core and advanced orchestration patterns including scheduling strategies, task branching, XCom usage, dynamic task mapping, assets (data-aware scheduling), incremental loads, and cross-DAG orchestration using TriggerDagRunOperator.
+# 🚀 Apache Airflow Learning & Orchestration Project
+
+This project contains a collection of Apache Airflow DAGs demonstrating core and advanced orchestration patterns, including scheduling strategies, task branching, XCom usage, dynamic task mapping, assets (data-aware scheduling), incremental loads, and cross-DAG orchestration using TriggerDagRunOperator.
 
 It is designed as a hands-on Airflow practice and reference project for building production-style data pipelines.
 
-📂 Project Structure
+---
+
+# 📂 Project Structure
+
+```
 AIRFLOW/
 ├── config/
 │   └── airflow.cfg
@@ -31,237 +36,200 @@ AIRFLOW/
 ├── pyproject.toml
 ├── uv.lock
 └── README.md
+```
 
-🎯 Key Concepts Demonstrated
+---
+
+# 🎯 Key Concepts Demonstrated
 
 This project covers:
 
-✅ Core DAG Basics
+## ✅ Core DAG Basics
 
-First DAG creation
+* First DAG creation
+* Task dependencies
 
-Task dependencies
+**File:** `1_first_dag.py`
 
-Operators and TaskFlow API
+---
 
-DAG parameters and structure
-
-File: 1_first_dag.py
-
-⏱ Scheduling Patterns
+## ⏱ Scheduling Patterns
 
 Different Airflow scheduling mechanisms:
 
-Cron Scheduling
+### Cron Scheduling
 
-Custom cron expressions
+* Custom cron expressions
 
-File: schedule_cron.py
+**File:** `schedule_cron.py`
 
-Timedelta Scheduling
+### Timedelta Scheduling
 
-Interval-based scheduling
+* Interval-based scheduling
 
-File: schedule_delta.py
+**File:** `schedule_delta.py`
 
-Preset Schedules
+### Preset Schedules
 
-@daily, @hourly, etc.
+* `@daily`, `@hourly`, etc.
 
-File: schedule_preset.py
+**File:** `schedule_preset.py`
 
-Special Date Logic
+### Special Date Logic
 
-Custom calendar/date-based triggers
+* Custom calendar/date-based triggers
 
-File: special_dates.py
+**File:** `special_dates.py`
 
-🔀 Branching Logic
+---
+
+## 🔀 Branching Logic
 
 Conditional task execution using Branch operators.
 
-File: branches.py
+**File:** `branches.py`
 
 Features:
 
-Conditional flow control
+* Conditional flow control
+* Selective downstream execution
+* Skip behavior handling
 
-Selective downstream execution
+---
 
-Skip behavior handling
-
-⚡ Parallel Task Execution
+## ⚡ Parallel Task Execution
 
 Running tasks concurrently and joining flows.
 
-File: parallel_tasks.py
+**File:** `parallel_tasks.py`
 
-Concepts:
 
-Parallel branches
+---
 
-Fan-out / fan-in patterns
+## 🔁 XCom Patterns
 
-🔁 XCom Patterns
-Automatic XCom (TaskFlow API)
+### Automatic XCom (TaskFlow API)
 
-File: xcom_auto.py
+**File:** `xcom_auto.py`
 
-Return values auto-pushed
+* Return values auto-pushed
+* Clean Pythonic pattern
 
-Clean Pythonic pattern
+### Manual XCom
 
-Manual XCom
+**File:** `xcom_manual.py`
 
-File: xcom_manual.py
+* Explicit push/pull
+* Key/value control
 
-Explicit push/pull
+---
 
-Key/value control
-
-📦 Assets / Data-Aware Scheduling
+## 📦 Assets / Data-Aware Scheduling
 
 Demonstrates Airflow asset-based triggering (data-driven DAG scheduling).
 
-Files:
+**Files:**
 
-asset_1.py
-
-asset_2.py
+* `asset_1.py`
+* `asset_2.py`
 
 Concepts:
 
-Dataset/Asset definitions
+* Dataset/Asset definitions
+* Producer DAGs
+* Consumer DAGs triggered by asset updates
+* Cross-DAG data dependencies
 
-Producer DAGs
+---
 
-Consumer DAGs triggered by asset updates
-
-Cross-DAG data dependencies
-
-🔗 Cross-DAG Orchestration
+## 🔗 Cross-DAG Orchestration
 
 Parent DAG triggering child DAGs.
 
-Files:
+**Files:**
 
-dag_orchestrator_parent.py
-
-dag_orchestrator_1.py
-
-dag_orchestrator_2.py
+* `dag_orchestrator_parent.py`
+* `dag_orchestrator_1.py`
+* `dag_orchestrator_2.py`
 
 Concepts:
 
-TriggerDagRunOperator
+* TriggerDagRunOperator
+* Multi-DAG workflows
+* Modular orchestration design
 
-Multi-DAG workflows
+---
 
-Modular orchestration design
-
-📈 Incremental Load Pattern
+## 📈 Incremental Load Pattern
 
 Incremental data processing workflow.
 
-File: incremental_load.py
+**File:** `incremental_load.py`
 
 Concepts:
 
-Incremental extraction logic
+* Incremental extraction logic
+* Stateful processing
+* Partition/time-based loads
+* Dynamic task mapping patterns
 
-Stateful processing
+---
 
-Partition/time-based loads
-
-Dynamic task mapping patterns
-
-🐳 Running with Docker
+# 🐳 Running with Docker
 
 This project includes a Docker Compose setup for running Airflow locally.
 
-Start Airflow
+## Start Airflow
+
+```bash
 docker compose up -d
+```
 
-Initialize Airflow (first time)
+---
+
+## Initialize Airflow (first time)
+
+```bash
 docker compose run airflow-init
+```
 
-Access UI
+---
+
+## Access UI
+
+```
 http://localhost:8080
-
+```
 
 Default credentials (if unchanged):
 
+```
 username: airflow
 password: airflow
+```
 
-🧪 How to Test DAGs
+---
 
-Start containers
+# 🧪 How to Test DAGs
 
-Open Airflow UI
+1. Start containers
+2. Open Airflow UI
+3. Enable DAG
+4. Trigger manually
+5. Inspect:
 
-Enable DAG
+   * Graph View
+   * Grid View
+   * Task logs
+   * XCom tab
+   * Asset view (for asset DAGs)
 
-Trigger manually
+---
 
-Inspect:
+# 🧰 Tech Stack
 
-Graph View
+* Apache Airflow v3
+* Python
+* Docker & Docker Compose
 
-Grid View
 
-Task logs
-
-XCom tab
-
-Asset view (for asset DAGs)
-
-🧰 Tech Stack
-
-Apache Airflow v3
-
-Python
-
-Docker & Docker Compose
-
-TaskFlow API
-
-Dynamic Task Mapping
-
-Asset Scheduling
-
-Cross-DAG orchestration
-
-📚 Learning Goals Covered
-
-This project demonstrates practical usage of:
-
-DAG design patterns
-
-Scheduling strategies
-
-Branching & conditional flows
-
-Parallelism
-
-XCom communication
-
-Asset-driven pipelines
-
-Incremental processing
-
-Parent-child DAG orchestration
-
-Modern Airflow v3 operator imports
-
-🚧 Notes
-
-logs/ is ignored from git
-
-.env is excluded for security
-
-__pycache__ excluded
-
-Config can be templated for production use
-
-Designed for learning + portfolio demonstration
